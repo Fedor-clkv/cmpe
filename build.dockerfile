@@ -21,7 +21,9 @@ ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 WORKDIR /opt
-RUN apt update -y && apt install git -y && git clone https://github.com/imgios/flyseum.git
+RUN apt update -y 
+RUN apt install git -y 
+RUN git clone https://github.com/imgios/flyseum.git
 WORKDIR /opt/flyseum
 RUN mvn package
 WORKDIR /opt/flyseum/target
