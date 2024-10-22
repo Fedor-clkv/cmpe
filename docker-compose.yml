@@ -1,12 +1,12 @@
 version: "3"
 
 services: 
-  
   buildapp:
     build:
       dockerfile: build.dockerfile
     volumes:
       - cd1:/tmp
+  
   app:
     build:
       dockerfile: app.dockerfile
@@ -19,6 +19,5 @@ services:
     
 volumes:
   cd1:
-    driver: local
   
 
