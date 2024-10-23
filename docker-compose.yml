@@ -5,19 +5,19 @@ services:
     build:
       dockerfile: build.dockerfile
     volumes:
-      - cd1:/tmp
+      - cd:/tmp
   
   app:
     build:
       dockerfile: app.dockerfile
     volumes:
-      - cd1:/tmp
+      - cd:/tmp
     ports:
       - 8081:8080
     depends_on:
       - buildapp
     
 volumes:
-  cd1:
+  cd:
   
 
