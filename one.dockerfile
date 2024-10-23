@@ -14,5 +14,5 @@ RUN apt update -y && apt install wget -y && apt install default-jdk -y
 RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz && tar xvfz apache-tomcat-10.0.20.tar.gz && cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
-COPY --from=builder /opt/boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/
+COPY --from=builder /opt/boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
 EXPOSE 8080
