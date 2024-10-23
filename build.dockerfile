@@ -2,10 +2,8 @@ FROM maven:3.9.6-eclipse-temurin-21-jammy
 
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
-RUN git clone https://github.com/imgios/flyseum.git
-WORKDIR /opt/app/flyseum
-#RUN ls -l /opt/flyseum
-#RUN mvn validate
+RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+WORKDIR /opt/app/boxfuse-sample-java-war-hello
 RUN mvn package
-#WORKDIR /opt/app/flyseum/target/
-#RUN cp flyseum.war /tmp
+WORKDIR /opt/app/boxfuse-sample-java-war-hello/target/
+RUN cp hello-1.0.war /tmp
