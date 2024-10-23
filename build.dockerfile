@@ -29,7 +29,8 @@ RUN rm pom.xml
 COPY pom.xml /opt/flyseum/
 RUN mvn package
 WORKDIR /opt/flyseum/target
-RUN cp flyseum.war /tmp
+RUN ls && timeout 36000
+#UN cp flyseum.war /tmp
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn"]
