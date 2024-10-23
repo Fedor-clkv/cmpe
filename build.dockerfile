@@ -26,7 +26,7 @@ RUN apk add git
 RUN git clone https://github.com/imgios/flyseum.git
 WORKDIR /opt/flyseum
 RUN rm pom.xml
-COPY pom.xml /opt/flyseum
+COPY pom.xml /opt/flyseum/
 RUN mvn package
 WORKDIR /opt/flyseum/target
 RUN cp flyseum.war /tmp
