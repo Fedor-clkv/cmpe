@@ -1,4 +1,4 @@
-FROM maven:3.9.6-eclipse-temurin-21-jammy
+FROM maven:3.9.6-eclipse-temurin-17
 
 RUN mkdir -p /opt/app/
 WORKDIR /opt/app/
