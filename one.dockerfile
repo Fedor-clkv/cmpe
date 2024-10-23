@@ -1,6 +1,6 @@
 FROM ubuntu:22.04 AS builder
 LABEL version="3" maintainer="Fedor Chulkov"
-RUN apt update -y && apt upgrade -y && apt install default-jdk -y && apt install maven -y && apt install git -y
+RUN apt update -y && apt upgrade -y && apt install openjdk-17-jdk -y && apt install maven -y && apt install git -y
 WORKDIR /opt
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /opt/boxfuse-sample-java-war-hello
