@@ -1,6 +1,6 @@
 FROM ubuntu:22.04 AS builder
 LABEL version="3" maintainer="Fedor Chulkov"
-RUN apt update -y && apt install default-jdk -y && apt install maven -y && apt install git -y
+RUN apt update -y && apt upgrade -y && apt install default-jdk -y && apt install maven -y && apt install git -y
 WORKDIR /opt
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /opt/boxfuse-sample-java-war-hello
@@ -10,7 +10,7 @@ RUN mvn package
 FROM ubuntu:22.04
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
-RUN apt update -y && apt install wget -y && apt install default-jdk -y
+RUN apt update -y && apt upgrade -y && apt install wget -y && apt install default-jdk -y
 ENV JAVA_HOME /usr/lib/jvm/default-java
 ENV JRE_HOME $JAVA_HOME
 RUN mkdir /usr/local/tomcat
