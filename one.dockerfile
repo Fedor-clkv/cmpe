@@ -11,7 +11,7 @@ FROM ubuntu:22.04
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir /usr/local/tomcat
-RUN apt update -y && apt install openjdk-17-jre -y && apt install wget -y
+RUN apt update -y && apt install openjdk-17-jdk -y && apt install wget -y
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
