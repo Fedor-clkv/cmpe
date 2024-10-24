@@ -20,5 +20,5 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 COPY --from=builder /opt/boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
 EXPOSE 8080
 #ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh"]
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
+#CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
 
