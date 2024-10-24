@@ -11,6 +11,7 @@ RUN mvn package
 FROM tomcat:9.0-jdk17
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
+RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 #RUN apt update -y && apt upgrade -y && apt install wget -y && apt install openjdk-17-jdk -y
 #ENV JAVA_HOME /usr/lib/jvm/default-java
 #ENV JRE_HOME $JAVA_HOME
