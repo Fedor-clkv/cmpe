@@ -7,7 +7,6 @@ WORKDIR /opt/boxfuse-sample-java-war-hello
 RUN rm pom.xml
 ADD pom.xml /opt/boxfuse-sample-java-war-hello/
 RUN mvn package
-#FROM ubuntu:22.04
 FROM tomcat:9.0-jdk17
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
@@ -20,6 +19,6 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 #UN wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz && tar xvfz apache-tomcat-10.0.20.tar.gz && cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
 COPY --from=builder /opt/boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
 EXPOSE 8080
-
-CMD ["/usr/local/tomcat/bin/catalina.sh", "start"]
+ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh"]
+CMD ["run"]
 
