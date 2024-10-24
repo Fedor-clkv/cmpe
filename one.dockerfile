@@ -12,15 +12,15 @@ FROM ubuntu:22.04
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir /usr/local/tomcat
-#RUN groupadd tomcat
-#RUN useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+RUN groupadd tomcat
+RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat
 RUN apt update -y && apt install default-jdk -y && apt install wget -y
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96-deployer.tar.gz
-RUN tar xvfz apache-tomcat-9.0.96-deployer.tar.gz
+RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+RUN tar xvfz tar xvfz apache-tomcat-9.0.96.tar.gz -C /usr/local/tomcat/
 # Копируем распакованные файлы в рабочую директорию
-RUN cp -Rv /tmp/apache-tomcat-9.0.96-deployer/* /usr/local/tomcat/
+#RUN cp -Rv /tmp/apache-tomcat-9.0.96-deployer/* /usr/local/tomcat/
 #RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 #RUN apt update -y && apt upgrade -y && apt install wget -y && apt install openjdk-17-jdk -y
 #ENV JAVA_HOME /usr/lib/jvm/default-java
