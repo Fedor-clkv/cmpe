@@ -21,4 +21,4 @@ RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 COPY --from=builder /opt/boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
 EXPOSE 8080
 
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
+CMD ["/usr/local/tomcat/bin/catalina.sh", "start"]
