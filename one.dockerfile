@@ -4,7 +4,7 @@ RUN apt update -y && apt upgrade -y && apt install default-jdk -y && apt install
 WORKDIR /opt
 RUN git clone https://github.com/imgios/flyseum
 WORKDIR /opt/flyseum/
-RUN mvn package
+RUN mvn clean package
 FROM ubuntu:22.04 AS app
 RUN mkdir /usr/local/tomcat
 RUN apt clean
