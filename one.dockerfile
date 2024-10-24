@@ -18,9 +18,9 @@ RUN apt update -y && apt install default-jdk -y && apt install wget -y
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
-RUN tar xvfz apache-tomcat-9.0.96.tar.gz -C /usr/local/tomcat/
+RUN tar xvfz apache-tomcat-9.0.96.tar.gz
 # Копируем распакованные файлы в рабочую директорию
-#RUN cp -Rv /tmp/apache-tomcat-9.0.96-deployer/* /usr/local/tomcat/
+RUN cp -Rv /tmp/apache-tomcat-9.0.96/* /usr/local/tomcat/
 #RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 #RUN apt update -y && apt upgrade -y && apt install wget -y && apt install openjdk-17-jdk -y
 #ENV JAVA_HOME /usr/lib/jvm/default-java
