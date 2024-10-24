@@ -14,11 +14,10 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir /usr/local/tomcat
 #RUN groupadd tomcat
 #RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat
-RUN apt update -y && apt install default-jdk -y
-RUN apt install curl -y
+RUN apt update -y && apt install default-jdk -y && apt install wget -y
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
-RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
 RUN tar xvfz tar xvfz apache-tomcat-9.0.96.tar.gz -C /usr/local/tomcat/
 # Копируем распакованные файлы в рабочую директорию
 #RUN cp -Rv /tmp/apache-tomcat-9.0.96-deployer/* /usr/local/tomcat/
