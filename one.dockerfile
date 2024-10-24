@@ -7,6 +7,7 @@ WORKDIR /opt/flyseum/
 RUN mvn package
 FROM ubuntu:22.04 AS app
 RUN mkdir /usr/local/tomcat
+RUN apt clean
 RUN apt-get update -y
 RUN apt-get install default-jdk -y
 RUN apt-get install default-jre -y 
