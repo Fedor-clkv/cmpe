@@ -12,8 +12,8 @@ FROM ubuntu:22.04
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir /usr/local/tomcat
-RUN groupadd tomcat
-RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat
+#RUN groupadd tomcat
+#RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat
 RUN apt update -y && apt install default-jdk -y && apt install wget -y
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
