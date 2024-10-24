@@ -8,7 +8,7 @@ RUN rm pom.xml
 ADD pom.xml /opt/boxfuse-sample-java-war-hello/
 RUN mvn package
 #FROM ubuntu:22.04
-FROM tomcat:jdk21
+FROM tomcat:9.0-jdk17
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 #RUN chmod +x /usr/local/tomcat/bin/catalina.sh
