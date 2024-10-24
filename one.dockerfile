@@ -15,6 +15,8 @@ RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomc
 RUN tar xvfz apache-tomcat-9.0.96.tar.gz
 RUN cp -Rv /tmp/apache-tomcat-9.0.96/* /usr/local/tomcat/
 COPY --from=builder /opt/flyseum/target/flyseum.war /usr/local/tomcat/webapps
+RUN echo '#!/bin/bash\n/usr/local/tomcat/bin/catalina.sh run' > /start-tomcat.sh && chmod +x /start-tomcat.sh
 EXPOSE 8080
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
+#CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
+CMD ["/start-tomcat.sh"]
 
