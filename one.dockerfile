@@ -7,10 +7,10 @@ WORKDIR /opt/flyseum/
 RUN mvn package
 FROM ubuntu:22.04 AS app
 RUN mkdir /usr/local/tomcat
-RUN apt update -y
-RUN apt install default-jdk -y
-RUN apt install default-jre -y 
-RUN apt install wget -y
+RUN apt-get update -y
+RUN apt-get install default-jdk -y
+RUN apt-get install default-jre -y 
+RUN apt-get install wget -y
 WORKDIR /tmp
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
 RUN tar xvfz apache-tomcat-9.0.96.tar.gz
